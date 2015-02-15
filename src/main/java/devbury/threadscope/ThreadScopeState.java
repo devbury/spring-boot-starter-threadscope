@@ -7,7 +7,7 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 public class ThreadScopeState {
-    private static final Logger LOGGER = LoggerFactory.getLogger(ThreadScopeState.class);
+    private static final Logger logger = LoggerFactory.getLogger(ThreadScopeState.class);
 
     private final Map<String, Object> beans = new ConcurrentHashMap<>();
     private final Map<String, Runnable> destructionCallbacks = new ConcurrentHashMap<>();
@@ -17,9 +17,9 @@ public class ThreadScopeState {
         super.finalize();
         beans.clear();
         if (!destructionCallbacks.isEmpty()) {
-            LOGGER.debug("Triggering bean destruction callbacks");
+            logger.debug("Triggering bean destruction callbacks");
             for (Map.Entry<String, Runnable> entry : destructionCallbacks.entrySet()) {
-                LOGGER.debug("  Destroying {}", entry.getKey());
+                logger.debug("  Destroying {}", entry.getKey());
                 entry.getValue().run();
             }
             destructionCallbacks.clear();
