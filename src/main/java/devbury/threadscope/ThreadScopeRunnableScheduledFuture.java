@@ -1,7 +1,5 @@
 package devbury.threadscope;
 
-import com.sun.javafx.beans.annotations.NonNull;
-
 import java.util.concurrent.*;
 
 public class ThreadScopeRunnableScheduledFuture<V> implements RunnableScheduledFuture<V> {

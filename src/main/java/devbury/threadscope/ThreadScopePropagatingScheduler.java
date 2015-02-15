@@ -45,7 +45,7 @@ public class ThreadScopePropagatingScheduler extends ThreadPoolTaskScheduler {
             protected <V> RunnableScheduledFuture<V> decorateTask(Callable<V> callable, RunnableScheduledFuture<V>
                     task) {
                 LOGGER.debug("Decorating Task");
-                return new ThreadScopeRunnableScheduledFuture<>(threadScopeManager, task);
+                return buildRunnableScheduledFuture(threadScopeManager, task);
             }
 
             @Override
@@ -53,5 +53,10 @@ public class ThreadScopePropagatingScheduler extends ThreadPoolTaskScheduler {
                 return decorateTask((Callable<V>) null, task);
             }
         };
+    }
+
+    protected <V> RunnableScheduledFuture<V> buildRunnableScheduledFuture(ThreadScopeManager threadScopeManager,
+                                                                          RunnableScheduledFuture<V> task) {
+        return new ThreadScopeRunnableScheduledFuture<>(threadScopeManager, task);
     }
 }
