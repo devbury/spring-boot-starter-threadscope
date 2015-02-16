@@ -31,3 +31,6 @@ threadScope.poolSize=25
 threadScope.threadNamePrefix=async-
 threadScope.scopeName=thread
 ```
+
+Setting `threadScope.scopeName=request` will replace the default web request scope with the starters thread based
+scope and all existing request scoped beans will use the new thread scope.
