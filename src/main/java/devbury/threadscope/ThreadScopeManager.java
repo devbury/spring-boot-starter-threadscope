@@ -9,6 +9,13 @@ import org.springframework.core.NamedThreadLocal;
 import javax.servlet.ServletRequestEvent;
 import javax.servlet.ServletRequestListener;
 
+/**
+ * Scope that binds thread scoped beans to a thread local.  This class functions in a similar way to
+ * {@link org.springframework.context.support.SimpleThreadScope}.  The difference being ThreadScopeManager
+ * supports destruction callbacks such as {@link javax.annotation.PreDestroy}.  If used in conjunction with {@link
+ * devbury.threadscope.ThreadScopePropagatingScheduler} as an executor, tasks will be able to access the thread
+ * scoped beans of the thread scheduling the task.
+ */
 public class ThreadScopeManager implements Scope, ServletRequestListener {
     public static final String THREAD_SCOPE = "thread";
 

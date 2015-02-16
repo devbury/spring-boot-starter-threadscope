@@ -6,12 +6,23 @@ import org.slf4j.LoggerFactory;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
+/**
+ * Holds thread scoped bean references for a given thread.  An instance of this class may be shared among
+ * asynchronous task threads and the calling thread.
+ */
 public class ThreadScopeState {
     private static final Logger logger = LoggerFactory.getLogger(ThreadScopeState.class);
 
     private final Map<String, Object> beans = new ConcurrentHashMap<>();
     private final Map<String, Runnable> destructionCallbacks = new ConcurrentHashMap<>();
 
+    /**
+     * Destruction callbacks will triggered when there are no longer any references to ThreadScopeState.  Callbacks
+     * will be executed on the jvm finalizer thread.  There may be a delay from when ThreadScopeState in no longer
+     * referenced and the jvm calls the finalizer.
+     *
+     * @throws Throwable
+     */
     @Override
     protected void finalize() throws Throwable {
         super.finalize();

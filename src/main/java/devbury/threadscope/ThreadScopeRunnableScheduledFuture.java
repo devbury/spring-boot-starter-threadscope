@@ -39,6 +39,9 @@ public class ThreadScopeRunnableScheduledFuture<V> implements RunnableScheduledF
         }
     }
 
+    /**
+     * Overload this and {@link #beforeRun()} to add custom bindings.  Binding MDC values in logback is an example.
+     */
     protected void afterRun() {
         threadScopeManager.unbind();
     }
