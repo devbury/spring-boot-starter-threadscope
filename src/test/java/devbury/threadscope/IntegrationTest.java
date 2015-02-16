@@ -13,7 +13,6 @@ import org.springframework.scheduling.annotation.AsyncConfigurer;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 
-import static devbury.threadscope.ThreadScopeManager.THREAD_SCOPE;
 import static org.junit.Assert.assertEquals;
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -59,7 +58,7 @@ public class IntegrationTest {
     }
 
     @Bean
-    @Scope(THREAD_SCOPE)
+    @Scope("request")
     public ValueBean valueBean() {
         return new ValueBean();
     }
