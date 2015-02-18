@@ -17,11 +17,13 @@
 package devbury.threadscope;
 
 import org.junit.Test;
+import org.springframework.beans.BeansException;
+import org.springframework.beans.factory.ObjectFactory;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
-public class ThreadScopeStateTest {
+public class ThreadScopeStateTest implements ObjectFactory<ThreadScopeStateTest> {
 
     boolean destructionCallbackCalled = false;
 
@@ -49,5 +51,10 @@ public class ThreadScopeStateTest {
         assertEquals(1, victim.size());
         victim.removeBean("bean");
         assertEquals(0, victim.size());
+    }
+
+    @Override
+    public ThreadScopeStateTest getObject() throws BeansException {
+        return this;
     }
 }

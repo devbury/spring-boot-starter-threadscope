@@ -50,8 +50,8 @@ public class ThreadScopeManager implements Scope, ServletRequestListener {
         ThreadScopeState state = getThreadScopeState();
         Object object = state.getBean(name);
         if (object == null) {
-            object = objectFactory.getObject();
-            state.addBean(name, object);
+            state.addBean(name, objectFactory);
+            object = state.getBean(name);
         }
         return object;
     }
