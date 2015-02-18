@@ -25,8 +25,6 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Import;
 import org.springframework.core.env.ConfigurableEnvironment;
 
-import static devbury.threadscope.ThreadScopeManager.THREAD_SCOPE;
-
 @EnableConfigurationProperties
 @Import(SchedulerConfiguration.class)
 public class ThreadScopeConfiguration {
@@ -52,7 +50,7 @@ public class ThreadScopeConfiguration {
                                                              ConfigurableEnvironment environment) {
         CustomScopeConfigurer customScopeConfigurer = new CustomScopeConfigurer();
         // ConfigurationProperties not configured yet.  Use ConfigurableEnvironment to get properties.
-        String scopeName = environment.getProperty(SCOPE_NAME_PROPERTY, THREAD_SCOPE);
+        String scopeName = environment.getProperty(SCOPE_NAME_PROPERTY, ThreadScopeProperties.DEFAULT_SCOPE_NAME);
         logger.info("Thread scope name set to {}", scopeName);
         customScopeConfigurer.addScope(scopeName, threadScopeManager);
         return customScopeConfigurer;

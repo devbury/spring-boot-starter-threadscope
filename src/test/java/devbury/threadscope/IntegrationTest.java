@@ -28,6 +28,7 @@ import org.springframework.core.task.TaskExecutor;
 import org.springframework.scheduling.annotation.AsyncConfigurer;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
+import org.springframework.web.context.WebApplicationContext;
 
 import static org.junit.Assert.assertEquals;
 
@@ -74,7 +75,7 @@ public class IntegrationTest {
     }
 
     @Bean
-    @Scope("request")
+    @Scope(WebApplicationContext.SCOPE_REQUEST)
     public ValueBean valueBean() {
         return new ValueBean();
     }

@@ -33,7 +33,6 @@ import javax.servlet.ServletRequestListener;
  * scoped beans of the thread scheduling the task.
  */
 public class ThreadScopeManager implements Scope, ServletRequestListener {
-    public static final String THREAD_SCOPE = "thread";
 
     private static final Logger logger = LoggerFactory.getLogger(ThreadScopeManager.class);
 

@@ -18,14 +18,14 @@ package devbury.threadscope;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
-import static devbury.threadscope.ThreadScopeManager.THREAD_SCOPE;
-
 @ConfigurationProperties(prefix = "threadScope")
 public class ThreadScopeProperties {
 
+    public static final String DEFAULT_SCOPE_NAME = "request";
+
     private int poolSize = 25;
     private String threadNamePrefix = "async-";
-    private String scopeName = THREAD_SCOPE;
+    private String scopeName = DEFAULT_SCOPE_NAME;
 
     public int getPoolSize() {
         return poolSize;
