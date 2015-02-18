@@ -23,10 +23,12 @@ import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean
 import org.springframework.context.annotation.Bean;
 import org.springframework.core.task.TaskExecutor;
 import org.springframework.scheduling.annotation.AsyncConfigurer;
+import org.springframework.scheduling.annotation.EnableAsync;
 
 import java.util.concurrent.Executor;
 
 @ConditionalOnMissingBean(AsyncConfigurer.class)
+@EnableAsync
 public class SchedulerConfiguration implements AsyncConfigurer {
 
     @Autowired
