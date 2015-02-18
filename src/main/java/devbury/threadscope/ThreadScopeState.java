@@ -74,7 +74,9 @@ public class ThreadScopeState {
     }
 
     public Object removeBean(String name) {
-        return beansByName.remove(name);
+        synchronized (beansByName) {
+            return beansByName.remove(name);
+        }
     }
 
     public void addDestructionCallback(String name, Runnable callback) {
