@@ -37,6 +37,12 @@ public class SchedulerConfiguration implements AsyncConfigurer {
     @Autowired
     private ThreadScopeProperties threadScopeProperties;
 
+    @Autowired
+    private TaskExecutor taskExecutor;
+
+    @Autowired
+    private AsyncUncaughtExceptionHandler asyncUncaughtExceptionHandler;
+
     @Bean
     @ConditionalOnMissingBean(TaskExecutor.class)
     public ThreadScopePropagatingScheduler defaultThreadScopePropagatingScheduler() {
@@ -55,11 +61,11 @@ public class SchedulerConfiguration implements AsyncConfigurer {
 
     @Override
     public Executor getAsyncExecutor() {
-        return defaultThreadScopePropagatingScheduler();
+        return taskExecutor;
     }
 
     @Override
     public AsyncUncaughtExceptionHandler getAsyncUncaughtExceptionHandler() {
-        return defaultAsyncUncaughtExceptionHandler();
+        return asyncUncaughtExceptionHandler;
     }
 }
