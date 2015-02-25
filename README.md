@@ -32,9 +32,9 @@ threadScope.threadNamePrefix=async-
 threadScope.scopeName=request
 ```
 
-The default setting of `threadScope.scopeName=request` will replace the default web request scope with the starters
+The default setting of `threadScope.scopeName=request` will replace the default web request scope with the starter's
 thread based scope and all existing request scoped beans will use the new thread scope.  If you want to use both the
-existing request scope and the new thread scope change the value of this setting.
+existing request scope and the new thread scope, change the value of this setting.
 
 ### Default Beans
 
