@@ -29,8 +29,17 @@ The following properties may be set in your application.properties file to overr
 ```properties
 threadScope.poolSize=25
 threadScope.threadNamePrefix=async-
-threadScope.scopeName=thread
+threadScope.scopeName=request
 ```
 
-Setting `threadScope.scopeName=request` will replace the default web request scope with the starters thread based
-scope and all existing request scoped beans will use the new thread scope.
+The default setting of `threadScope.scopeName=request` will replace the default web request scope with the starters
+thread based scope and all existing request scoped beans will use the new thread scope.  If you want to use both the
+existing request scope and the new thread scope change the value of this setting.
+
+### Default Beans
+
+`spring-boot-starter-threadscope` will configure a default working environment but will remove the defaults based on
+the beans configured in your application.  If an `AsyncConfigurer` is not already already defined one will be
+registered.  A default `SimpleAsyncUncaughtExceptionHandler` will be defined if an `AsyncUncaughtExceptionHandler` is
+not defined.  A `ThreadScopePropagatingScheduler` that can propagate the scheduling thread's scope to threads in the
+pool will be used unless another implementation is provided.
