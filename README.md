@@ -6,11 +6,9 @@ propagates thread scoped beans to asynchronous threads.  Thread scope works in r
 well as web application contexts.  It can be used to replace Spring's request scope.
 
 ## Activating
-To build and install the project into your local maven repository, run
 
-`mvn clean install`
-
-Next add the starter dependency to your project's POM file.
+`spring-boot-starter-threadscope` is published to the [jcenter](https://bintray.com/bintray/jcenter) repository. To
+use the starter, add the following dependency information to your project.
 
 ```xml
 <dependency>
@@ -18,6 +16,10 @@ Next add the starter dependency to your project's POM file.
     <artifactId>spring-boot-starter-threadscope</artifactId>
 </dependency>
 ```
+
+To build and install the project from source, clone the Git repository and run
+
+`mvn clean install`
 
 The starter provides you with a configured thread scope and a task executor that will propagate thread scoped beans
 to asynchronous tasks.
