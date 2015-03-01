@@ -14,6 +14,7 @@ use the starter, add the following dependency information to your project.
 <dependency>
     <groupId>devbury.threadscope</groupId>
     <artifactId>spring-boot-starter-threadscope</artifactId>
+    <version>1.0.0</version>
 </dependency>
 ```
 
