@@ -7,14 +7,14 @@ well as web application contexts.  It can be used to replace Spring's request sc
 
 ## Activating
 
-`spring-boot-starter-threadscope` is published to the [jcenter](https://bintray.com/bintray/jcenter) repository. To
+`spring-boot-starter-threadscope` is published to the [jcenter](https://bintray.com/bintray/jcenter) and [maven central](http://search.maven.org) repositories. To
 use the starter, add the following dependency information to your project.
 
 ```xml
 <dependency>
-    <groupId>devbury.threadscope</groupId>
+    <groupId>com.devbury</groupId>
     <artifactId>spring-boot-starter-threadscope</artifactId>
-    <version>1.0.0</version>
+    <version>1.1.0</version>
 </dependency>
 ```
 
