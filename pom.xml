@@ -51,9 +51,9 @@
     </developers>
 
     <scm>
-        <url>
-            https://github.com/devbury/spring-boot-starter-threadscope
-        </url>
+        <connection>scm:git:git@github.com:devbury/spring-boot-starter-threadscope.git</connection>
+        <developerConnection>scm:git:git@github.com:devbury/spring-boot-starter-threadscope.git</developerConnection>
+        <url>https://github.com/devbury/spring-boot-starter-threadscope</url>
     </scm>
 
     <parent>
