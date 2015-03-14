@@ -1,4 +1,5 @@
-# spring-boot-starter-threadscope
+
+# spring-boot-starter-threadscope ![](https://travis-ci.org/devbury/spring-boot-starter-threadscope.svg?branch=master)
 A Spring Boot starter that sets up a "thread" scope similar to [SimpleThreadScope]
 (http://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/context/support/SimpleThreadScope.html).
 The difference being `spring-boot-starter-threadscope` supports destruction callbacks such as `@PreDestroy` and
